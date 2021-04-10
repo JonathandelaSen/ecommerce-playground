@@ -1,0 +1,75 @@
+{
+  "name": "ecommerce-playground",
+  "version": "1.0.0",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JonathandelaSen/ecommerce-playground.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JonathandelaSen/ecommerce-playground/issues"
+  },
+  "homepage": "https://github.com/JonathandelaSen/ecommerce-playground#readme",
+  "jest": {
+    "testEnvironment": "node",
+    "roots": [
+      "<rootDir>/src"
+    ],
+    "testMatch": [
+      "**/__tests__/**/*.+(ts|tsx|js)",
+      "**/?(*.)+(spec|test).+(ts|tsx|js)"
+    ],
+    "transform": {
+      "^.+\\.(ts|tsx)$": "ts-jest"
+    }
+  },
+  "scripts": {
+    "test": "NODE_ENV=test jest --runInBand --forceExit",
+    "test-coverage": "NODE_ENV=test jest --runInBand --coverage --forceExit",
+    "start": "NODE_ENV=dev npm run build && node dist/app/start",
+    "build": "npm run build:clean && npm run build:tsc && npm run build:di",
+    "build:clean": "rm -rf dist/*",
+    "build:tsc": "tsc --build tsconfig.json",
+    "build:di": "copy 'src/**/*.{json,yaml,html,png}' dist"
+  },
+  "dependencies": {
+    "@sendgrid/mail": "^7.4.2",
+    "apidoc": "^0.27.1",
+    "app-root-path": "3.0.0",
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.5",
+    "debug": "^4.3.1",
+    "dotenv": "^8.2.0",
+    "eslint": "^7.23.0",
+    "express": "^4.17.1",
+    "joi": "^17.4.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^3.6.6",
+    "mongoose": "^5.12.3",
+    "morgan": "^1.10.0",
+    "nyc": "^15.1.0",
+    "validatorjs": "^3.22.1",
+    "node-dependency-injection": "^2.6.11",
+    "helmet": "^4.4.1",
+    "copy": "0.3.2"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "typescript": "^4.1.3",
+    "@types/body-parser": "^1.19.0",
+    "@types/express": "^4.17.11",
+    "@types/jsonwebtoken": "^8.5.0",
+    "@types/multer": "^1.4.5",
+    "@typescript-eslint/eslint-plugin": "^4.14.1",
+    "@typescript-eslint/parser": "^4.14.1",
+    "@types/mongoose": "^5.5.43",
+    "@types/jest": "^26.0.20",
+    "@types/supertest": "^2.0.4",
+    "jest": "^26.6.3",
+    "supertest": "^6.1.3",
+    "ts-jest": "^26.5.0"
+  }
+}
